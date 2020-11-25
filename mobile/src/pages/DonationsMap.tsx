@@ -96,25 +96,25 @@ export default function DonationsMap() {
                 >
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/2.jpg')} />
+                  <Image style={styles.img} source={require('../images/book.png')} />
                   <Text style={styles.itemTitle}>Programação</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/2.jpg')} />
+                  <Image style={styles.img} source={require('../images/book.png')} />
                   <Text style={styles.itemTitle}>Cáculo I</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/2.jpg')} />
+                  <Image style={styles.img} source={require('../images/book.png')} />
                   <Text style={styles.itemTitle}>Física</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/2.jpg')} />
+                  <Image style={styles.img} source={require('../images/book.png')} />
                   <Text style={styles.itemTitle}>Estatística</Text>
                 </TouchableOpacity>
               </ScrollView>                       

@@ -13,6 +13,10 @@ const Home = () => {
         navigation.navigate('DonationsMap')
     }
 
+    function handleNavigateToSelectionUfCity() {
+      navigation.navigate('SelectionUfCity')
+  }
+
     return (
         <ImageBackground  
             source={require('../../images/1.png')} 
@@ -24,7 +28,7 @@ const Home = () => {
                 <Text style={styles.description}>Ajudamos pessoas a encontrarem as soluções para seus problemas.</Text>
             </View>
 
-            <RectButton style={styles.button} onPress={handleNavigateToMap}>
+            <RectButton style={styles.button} onPress={handleNavigateToSelectionUfCity}>
                 <View style={styles.buttonIcon}>
                   <Text>
                     <Icon name="arrow-right" color="#FFF" size={24} />

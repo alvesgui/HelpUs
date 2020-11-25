@@ -8,6 +8,7 @@ const {Navigator, Screen} = createStackNavigator();
 import DonationsMap from './pages/DonationsMap';
 import DonationsDetails from './pages/DonationsDetails';
 import Home from './pages/Home/index'
+import SelectionUfCity from './pages/Home/SelectionUfCity'
 import SelectMapPosition from './pages/CreateDonation/SelectMapPosition'
 import DonationData from './pages/CreateDonation/DonationData'
 import Header from './components/Header';
@@ -20,7 +21,12 @@ export default function Routes() {
                 <Screen 
                     name="Home" 
                     component={Home} 
-                />   
+                />
+
+                 <Screen 
+                    name="SelectionUfCity" 
+                    component={SelectionUfCity} 
+                />    
         
                 <Screen 
                     name="DonationsMap" 

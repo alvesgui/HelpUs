@@ -73,7 +73,7 @@ export default function DonationsDetails() {
 
       <View style={styles.detailsContainer}>
         <Text style={styles.title}>{donationLocation.name}</Text>
-  <Text style={styles.description}>{donationLocation.about}</Text>
+        <Text style={styles.description}>{donationLocation.about}</Text>
       
         <View style={styles.mapContainer}>
           <MapView 
@@ -113,7 +113,8 @@ export default function DonationsDetails() {
             <Feather name="clock" size={40} color="#2AB5D1" />
             <Text style={[styles.scheduleText, styles.scheduleTextBlue]}>Segunda à Sexta {donationLocation.available_hours}</Text>
           </View>
-
+          
+          {console.log(donationLocation.available_to_attend)}
           {donationLocation.available_to_attend ? (
             <View style={[styles.scheduleItem, styles.scheduleItemGreen]}>
               <Feather name="info" size={40} color="#39CC83" />

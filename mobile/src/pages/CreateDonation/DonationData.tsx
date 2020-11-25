@@ -49,6 +49,8 @@ export default function DonationData() {
     })
 
     await api.post('donations', data)
+
+    console.log(data)
     
     navigation.navigate('DonationsMap')
   }
