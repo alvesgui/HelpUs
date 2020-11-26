@@ -105,7 +105,7 @@ export default function DonationsDetails() {
       
         <View style={styles.separator} />
 
-        <Text style={styles.title}>Instruções para visita</Text>
+        <Text style={styles.title}>Preço</Text>
             <Text style={styles.description}>{donationLocation.objects}</Text>
 
         <View style={styles.scheduleContainer}>
@@ -114,16 +114,15 @@ export default function DonationsDetails() {
             <Text style={[styles.scheduleText, styles.scheduleTextBlue]}>Segunda à Sexta {donationLocation.available_hours}</Text>
           </View>
           
-          {console.log(donationLocation.available_to_attend)}
           {donationLocation.available_to_attend ? (
             <View style={[styles.scheduleItem, styles.scheduleItemGreen]}>
               <Feather name="info" size={40} color="#39CC83" />
-              <Text style={[styles.scheduleText, styles.scheduleTextGreen]}>Atendemos fim de semana</Text>
+              <Text style={[styles.scheduleText, styles.scheduleTextGreen]}>Disponível aos fins de semana</Text>
             </View>
           ): (
             <View style={[styles.scheduleItem, styles.scheduleItemRed]}>
               <Feather name="info" size={40} color="#FF669D" />
-              <Text style={[styles.scheduleText, styles.scheduleTextRed]}>Não Atendemos fim de semana</Text>
+              <Text style={[styles.scheduleText, styles.scheduleTextRed]}>Não estou disponível aos fins de semana</Text>
             </View>
           )}
           

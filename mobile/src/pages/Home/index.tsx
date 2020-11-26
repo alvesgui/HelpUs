@@ -5,7 +5,11 @@ import {useNavigation} from '@react-navigation/native'
 
 import { Feather as Icon } from '@expo/vector-icons';
 
+import giveClassesIcon from '../../images/give-classes.png'
+import studyIcon from '../../images/study.png'
+
 const Home = () => {
+    const [study, setStudy] = useState(true) 
 
     const navigation = useNavigation();
 
@@ -14,7 +18,8 @@ const Home = () => {
     }
 
     function handleNavigateToSelectionUfCity() {
-      navigation.navigate('SelectionUfCity')
+      setStudy(false)
+      navigation.navigate('SelectionUfCity',  {study})
   }
 
     return (
@@ -24,20 +29,32 @@ const Home = () => {
         >
             <View style={styles.main}>
                 <Image source={require('../../images/logo.png')} />
-                <Text style={styles.title}>Venha dar uma Ajudinha.</Text>
-                <Text style={styles.description}>Ajudamos pessoas a encontrarem as soluções para seus problemas.</Text>
             </View>
 
-            <RectButton style={styles.button} onPress={handleNavigateToSelectionUfCity}>
-                <View style={styles.buttonIcon}>
-                  <Text>
-                    <Icon name="arrow-right" color="#FFF" size={24} />
-                  </Text>
-                </View>
-                <Text style={styles.buttonText}>
-                  Entrar
-                </Text>
-              </RectButton>
+            <View style={styles.mainText}>
+                <Text style={styles.title}>Seja Bem-vindo</Text>
+                <Text style={styles.titleBold}>O que deseja fazer ?</Text>
+           
+              <View style={styles.containerButtons}>
+                <TouchableOpacity style={styles.button} onPress={handleNavigateToSelectionUfCity}>
+                    <Image source={studyIcon} />
+                    <Text style={styles.buttonText}>
+                      Estudar
+                    </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                style={styles.button} 
+                onPress={handleNavigateToMap}>
+
+                    <Image source={giveClassesIcon} />
+                    <Text style={styles.buttonText}>
+                      Dar aula
+                    </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
 
         </ImageBackground>
     ) 
@@ -52,64 +69,53 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop: 100
     },
+
+    mainText:{
+      flex: 1,
+      marginBottom: 50
+    },
+
 
     title: {
         color: '#fff',
-        fontSize: 32,
-        fontFamily: 'Jost_700Bold',
+        fontSize: 20,
+        fontFamily: 'Jost_600SemiBold',
         maxWidth: 260,
         marginTop: 48,
     },
 
-    description: {
+    titleBold: {
         color: '#fff',
-        fontSize: 16,
+        fontSize: 24,
         marginTop: 16,
-        fontFamily: 'Jost_600SemiBold',
+        fontFamily: 'Jost_700Bold',
         maxWidth: 260,
         lineHeight: 24,
       },
-    
-      footer: {},
-    
-      select: {},
-    
-      input: {
-        height: 60,
-        backgroundColor: '#FFF',
-        borderRadius: 10,
-        marginBottom: 8,
-        paddingHorizontal: 24,
-        fontSize: 16,
+
+      containerButtons: {
+        flexDirection: 'row',
+        marginTop: 40,
+        justifyContent: 'space-between'
       },
     
       button: {
         backgroundColor: '#053A5B',
-        height: 60,
-        flexDirection: 'row',
+        width: 130,
+        height: 150,
         borderRadius: 10,
-        overflow: 'hidden',
-        alignItems: 'center',
-        marginTop: 8,
+        padding: 24,
+        justifyContent: 'space-between'
       },
     
-      buttonIcon: {
-        height: 60,
-        width: 60,
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        justifyContent: 'center',
-        alignItems: 'center'
-      },
     
       buttonText: {
-        flex: 1,
-        justifyContent: 'center',
-        textAlign: 'center',
         color: '#FFF',
         fontFamily: 'Jost_700Bold',
-        fontSize: 16,
+        fontSize: 20,
       }
 
 })

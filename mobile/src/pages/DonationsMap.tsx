@@ -3,6 +3,7 @@ import Constants from 'expo-constants';
 import { StyleSheet, Text, View, Dimensions, Image, ScrollView} from 'react-native';
 import MapView, {Marker, Callout, PROVIDER_GOOGLE} from 'react-native-maps';
 import normalize from 'react-native-normalize';
+import {useRoute} from '@react-navigation/native'
 
 import {Feather as Icon} from '@expo/vector-icons'
 
@@ -11,6 +12,11 @@ import { useNavigation, useFocusEffect} from '@react-navigation/native';
 import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
 
 import api from '../services/api';
+
+interface DonationDetailsRouteParms {
+  study: boolean;
+}
+
 
 interface DonationLocation {
   id: number;
@@ -21,7 +27,10 @@ interface DonationLocation {
 
 export default function DonationsMap() {
     const [donationLocations, setDonationLocations] = useState<DonationLocation[]>([])
-    const  navigation = useNavigation();
+    const navigation = useNavigation();
+    const route = useRoute()
+
+    const study = route.params as DonationDetailsRouteParms;
 
     useFocusEffect(() => {
       api.get('donations').then(response => {
@@ -41,15 +50,25 @@ export default function DonationsMap() {
       navigation.goBack();
     }
 
+    function handleGoHome() {
+      navigation.navigate('Home');
+  }
+
     return(
       <>
         <View style={styles.container}>
-          <TouchableOpacity onPress={handleNavigateBack}>
-            <Icon name="arrow-left" size={20} color="#15c3d6" />
-          </TouchableOpacity>
-          
+          <View style={styles.header} >
+            <TouchableOpacity onPress={handleNavigateBack}>
+              <Icon name="arrow-left" size={20} color="#15c3d6" />
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={handleGoHome}>
+              <Icon name="log-out" size={20} color="#15c3d6" />
+            </TouchableOpacity>
+          </View>
+
           <Text style={styles.title}>Bem vindo.</Text>
-          <Text style={styles.description}>Encontre no mapa alguém que precisa de ajuda ou cadastre seu ponto e receba ajuda..</Text>
+          <Text style={styles.description}>Encontre no mapa o que você precisa.</Text>
           
           <View style={styles.mapContainer}>
             <MapView 
@@ -58,8 +77,8 @@ export default function DonationsMap() {
             initialRegion={{
                 latitude: -3.78117,
                 longitude: -38.6263497,
-                latitudeDelta: 0.014,
-                longitudeDelta: 0.014,
+                latitudeDelta: 0.020,
+                longitudeDelta: 0.020,
             }}
             >
             {donationLocations.map(donationLocation => {
@@ -96,25 +115,25 @@ export default function DonationsMap() {
                 >
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/book.png')} />
+                  <Image style={styles.img} source={require('../images/book2.png')} />
                   <Text style={styles.itemTitle}>Programação</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/book.png')} />
+                  <Image style={styles.img} source={require('../images/book3.png')} />
                   <Text style={styles.itemTitle}>Cáculo I</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/book.png')} />
+                  <Image style={styles.img} source={require('../images/book2.png')} />
                   <Text style={styles.itemTitle}>Física</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
                           onPress={() => {}}>
-                  <Image style={styles.img} source={require('../images/book.png')} />
+                  <Image style={styles.img} source={require('../images/book3.png')} />
                   <Text style={styles.itemTitle}>Estatística</Text>
                 </TouchableOpacity>
               </ScrollView>                       
@@ -122,10 +141,13 @@ export default function DonationsMap() {
 
             <View style={styles.footer}>
             <Text style={styles.footerText}>{donationLocations.length} locais encontrados</Text>
-    
-            <RectButton style={styles.createDoacao} onPress={handleNavigateToCreateDonation}>
+            
+            {study ? (<View />) : (<RectButton style={styles.createDoacao} onPress={handleNavigateToCreateDonation}>
                 <Icon name="plus" size={20} color="#ffffff"></Icon>
-            </RectButton>
+            </RectButton>)}
+            
+            
+            
             </View>
         </View>
       </>
@@ -136,6 +158,11 @@ const styles = StyleSheet.create({
       flex: 1,
       paddingHorizontal: 32,
       paddingTop: 20 + Constants.statusBarHeight,
+    },
+
+    header:{
+      flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     
     map: {

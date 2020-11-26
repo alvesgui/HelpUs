@@ -49,8 +49,6 @@ export default function DonationData() {
     })
 
     await api.post('donations', data)
-
-    console.log(data)
     
     navigation.navigate('DonationsMap')
   }
@@ -123,9 +121,9 @@ export default function DonationData() {
         <Feather name="plus" size={24} color="#15B6D6" />
       </TouchableOpacity>
 
-      <Text style={styles.title}>Encontro</Text>
+      <Text style={styles.title}>Sobre a aula</Text>
 
-      <Text style={styles.label}>Instruções</Text>
+      <Text style={styles.label}>Preço</Text>
       <TextInput
         style={[styles.input, { height: 110 }]}
         multiline
