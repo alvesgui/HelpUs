@@ -13,8 +13,8 @@ const Home = () => {
 
     const navigation = useNavigation();
 
-    function handleNavigateToMap() {
-        navigation.navigate('DonationsMap')
+    function handleNavigateToGiveClass() {
+        navigation.navigate('GiveClasses')
     }
 
     function handleNavigateToSelectionUfCity() {
@@ -45,7 +45,7 @@ const Home = () => {
 
                 <TouchableOpacity 
                 style={styles.button} 
-                onPress={handleNavigateToMap}>
+                onPress={handleNavigateToGiveClass}>
 
                     <Image source={giveClassesIcon} />
                     <Text style={styles.buttonText}>

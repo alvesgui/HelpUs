@@ -12,6 +12,7 @@ import SelectionUfCity from './pages/Home/SelectionUfCity'
 import SelectMapPosition from './pages/CreateDonation/SelectMapPosition'
 import DonationData from './pages/CreateDonation/DonationData'
 import Header from './components/Header';
+import GiveClasses from './pages/Home/GiveClasses'
 
 export default function Routes() {
     return(
@@ -26,7 +27,12 @@ export default function Routes() {
                  <Screen 
                     name="SelectionUfCity" 
                     component={SelectionUfCity} 
-                />    
+                />
+
+                 <Screen 
+                    name="GiveClasses" 
+                    component={GiveClasses} 
+                />     
         
                 <Screen 
                     name="DonationsMap" 
