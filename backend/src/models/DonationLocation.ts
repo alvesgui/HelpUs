@@ -22,10 +22,22 @@ export default class DonationLocation {
     objects: string;
 
     @Column()
-    available_hours: string
+    available_hours: string;
 
     @Column()
     available_to_attend: boolean;
+    
+    @Column()
+    city: string;
+
+    @Column()
+    uf: string;
+
+    @Column()
+    whatsapp: number;
+
+    @Column()
+    price: string;
 
     @OneToMany(() => Image, image => image.donationLocation, {
         cascade: ['insert', 'update']

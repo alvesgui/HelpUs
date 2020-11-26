@@ -54,6 +54,28 @@ export class createDonations1605206955182 implements MigrationInterface {
                     type: 'boolean',
                     default: false,
                 },
+                {
+                    name: 'city',
+                    type: 'varchar',
+                },
+
+                {
+                    name: 'uf',
+                    type: 'varchar',
+                },
+
+
+                {
+                    name: 'whatsapp',
+                    type: 'numeric',
+                },
+
+                {
+                    name: 'price',
+                    type: 'varchar',
+                },
+
+                
             ],
 
         }))

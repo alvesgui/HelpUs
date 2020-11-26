@@ -18,9 +18,12 @@ export default function DonationData() {
   const [name, setName] = useState('')
   const [about, setAbout] = useState('')
   const [objects, setObjects] = useState('')
-  const [whatsapp, setWhatsapp] = useState('')
   const [available_hours, setAvailableHours] = useState('')
   const [available_to_attend, setAvailableToAttend] = useState(true)
+  const [city, setCity] = useState('')
+  const [uf, setUf] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
+  const [price, setPrice] = useState('')
   const [images, setImages] = useState<string[]>([])
   
   const navigation = useNavigation();
@@ -39,6 +42,11 @@ export default function DonationData() {
     data.append('objects', objects);
     data.append('available_hours', available_hours);
     data.append('available_to_attend', String(available_to_attend));
+    data.append('city', city);
+    data.append('uf', uf);
+    data.append('whatsapp', String(whatsapp));
+    data.append('price', price);
+    
     
     images.forEach((image, index) => {
       data.append('images', {
@@ -102,6 +110,29 @@ export default function DonationData() {
         value={whatsapp}
         onChangeText={setWhatsapp}
       />
+
+      <Text style={styles.label}>Estado</Text>
+      <TextInput
+        style={styles.input}
+        value={uf}
+        onChangeText={setUf}
+      />
+
+      <Text style={styles.label}>Cidade</Text>
+      <TextInput
+        style={styles.input}
+        value={city}
+        onChangeText={setCity}
+      />
+
+      <Text style={styles.label}>Preço</Text>
+      <TextInput
+        style={styles.input}
+        value={price}
+        onChangeText={setPrice}
+      />
+
+
 
       <Text style={styles.label}>Fotos</Text>
 

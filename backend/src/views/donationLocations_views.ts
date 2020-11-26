@@ -12,6 +12,10 @@ export default {
             objects: donationLocation.objects,
             available_hours: donationLocation.available_hours,
             available_to_attend: donationLocation.available_to_attend,
+            city: donationLocation.city,
+            uf: donationLocation.uf,
+            whatsapp: donationLocation.whatsapp,
+            price: donationLocation.price,
             images: imagesView.renderMany(donationLocation.images)
             
         }

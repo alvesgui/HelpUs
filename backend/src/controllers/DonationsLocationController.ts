@@ -42,6 +42,10 @@ export default {
             objects,
             available_hours,
             available_to_attend,
+            city,
+            uf,
+            whatsapp,
+            price,
         } = request.body;
     
         const donationsLocationRepository = getRepository(DonationLocation)
@@ -59,7 +63,11 @@ export default {
             about,
             objects,
             available_hours,
-            available_to_attend,
+            available_to_attend,   
+            city,
+            uf,
+            whatsapp,
+            price,
             images
         }
 
@@ -71,6 +79,10 @@ export default {
             objects: Yup.string().required(),
             available_hours: Yup.string().required(),
             available_to_attend: Yup.boolean().required(),
+            city: Yup.string().required(),
+            uf: Yup.string().required().max(2),
+            whatsapp: Yup.string().required(),
+            price: Yup.string().required(),
             images: Yup.array(Yup.object().shape({
                 path: Yup.string().required()
             }))

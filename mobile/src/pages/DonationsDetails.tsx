@@ -21,6 +21,10 @@ interface DonationLocation {
   objects: string;
   available_hours: string ;
   available_to_attend: boolean;
+  city: string;
+  uf: string;
+  whatsapp: number;
+  price: string;
   images: Array<{
     id: number;
     url: string;
@@ -53,7 +57,7 @@ export default function DonationsDetails() {
   }
 
   function handleWhatsapp() {
-    Linking.openURL(`whatsapp://send?phone${999010507}&text=Tenho interesse em ministrar sua aula`)
+    Linking.openURL(`whatsapp://send?phone=${donationLocation?.whatsapp}&text=Tenho interesse em ministrar sua aula`)
   }
 
   return (
@@ -106,7 +110,7 @@ export default function DonationsDetails() {
         <View style={styles.separator} />
 
         <Text style={styles.title}>Preço</Text>
-            <Text style={styles.description}>{donationLocation.objects}</Text>
+            <Text style={styles.description}>{donationLocation.price}</Text>
 
         <View style={styles.scheduleContainer}>
           <View style={[styles.scheduleItem, styles.scheduleItemBlue]}>
