@@ -4,8 +4,9 @@
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto"> O Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-layout">Executando o Projeto
+</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -30,11 +31,11 @@ O projeto foi desenvolvido com as stecnologias abaixo:
 - [Expo](https://expo.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## 💻 Projeto
+## 💻 O Projeto
 
 O Help Us é um aplicativo que visa ajuda pessoas, concetandos pessoas interessadas em dar aula com aquelas que precisam de uma aula particular de um determinado assunto.❤
 
-## 🔖 Executar o Projeto
+## 🔖 Executando o Projeto
 
 Entre na pasta backend
 
