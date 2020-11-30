@@ -23,7 +23,7 @@
 
 ## 🚀 Tecnologias
 
-O projeto foi desenvolvido com as stecnologias abaixo:
+O projeto foi desenvolvido com as tecnologias abaixo:
 
 - [Node.js](https://nodejs.org/en/)
 - [React](https://reactjs.org)
@@ -33,7 +33,7 @@ O projeto foi desenvolvido com as stecnologias abaixo:
 
 ## 💻 O Projeto
 
-O Help Us é um aplicativo que visa ajuda pessoas, concetandos pessoas interessadas em dar aula com aquelas que precisam de uma aula particular de um determinado assunto.❤
+O Help Us é um aplicativo que visa ajudar pessoas, concetandos pessoas interessadas em dar aula e em ganahr uma renda extra, com aquelas que precisam de uma aula particular de um determinado assunto.❤
 
 ## 🔖 Executando o Projeto
 
