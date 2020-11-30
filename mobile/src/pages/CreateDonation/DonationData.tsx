@@ -107,6 +107,7 @@ export default function DonationData() {
       <Text style={styles.label}>Whatsapp</Text>
       <TextInput
         style={styles.input}
+        keyboardType={'numeric'}
         value={whatsapp}
         onChangeText={setWhatsapp}
       />
@@ -114,6 +115,8 @@ export default function DonationData() {
       <Text style={styles.label}>Estado</Text>
       <TextInput
         style={styles.input}
+        autoCapitalize={'characters'}
+        maxLength={2}
         value={uf}
         onChangeText={setUf}
       />
@@ -121,6 +124,7 @@ export default function DonationData() {
       <Text style={styles.label}>Cidade</Text>
       <TextInput
         style={styles.input}
+        autoCapitalize={'words'}
         value={city}
         onChangeText={setCity}
       />
@@ -128,6 +132,7 @@ export default function DonationData() {
       <Text style={styles.label}>Preço</Text>
       <TextInput
         style={styles.input}
+        keyboardType={'numeric'}
         value={price}
         onChangeText={setPrice}
       />
@@ -154,7 +159,7 @@ export default function DonationData() {
 
       <Text style={styles.title}>Sobre a aula</Text>
 
-      <Text style={styles.label}>Preço</Text>
+      <Text style={styles.label}>Instruções</Text>
       <TextInput
         style={[styles.input, { height: 110 }]}
         multiline

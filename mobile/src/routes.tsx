@@ -13,6 +13,7 @@ import SelectMapPosition from './pages/CreateDonation/SelectMapPosition'
 import DonationData from './pages/CreateDonation/DonationData'
 import Header from './components/Header';
 import GiveClasses from './pages/Home/GiveClasses'
+import UserTab from './UserTab';
 
 export default function Routes() {
     return(
@@ -44,7 +45,7 @@ export default function Routes() {
                     component={DonationsDetails}
                     options={{
                         headerShown: true,
-                        header: () => <Header  showCancel={false} title="Detalhes do Doador" />
+                        header: () => <Header  showCancel={false} title="Detalhes da Aula" />
                     }} 
                 />
 
@@ -64,6 +65,11 @@ export default function Routes() {
                         headerShown: true,
                         header: () => <Header title="Preencha seus dados" />
                     }}  
+                />
+
+                <Screen 
+                    name="User" 
+                    component={UserTab} 
                 />
             </Navigator>
         </NavigationContainer>

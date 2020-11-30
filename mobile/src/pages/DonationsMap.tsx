@@ -17,20 +17,28 @@ interface DonationDetailsRouteParms {
   study: boolean;
 }
 
+interface LoginRouteParms {
+  loggedIn : boolean;
+}
+
 
 interface DonationLocation {
   id: number;
   name: string;
   latitude: number;
   longitude: number;
+  price: string;
+  objects: string;
 }
 
 export default function DonationsMap() {
     const [donationLocations, setDonationLocations] = useState<DonationLocation[]>([])
+    const [item, setItem] = useState(false)
     const navigation = useNavigation();
     const route = useRoute()
 
     const study = route.params as DonationDetailsRouteParms;
+    const loggedIn = route.params as LoginRouteParms;
 
     useFocusEffect(() => {
       api.get('donations').then(response => {
@@ -38,13 +46,19 @@ export default function DonationsMap() {
       })
     });
 
+    
+
     function handleNavigateToDonationDetails(id: number) {
         navigation.navigate('DonationsDetails', {id});
     }
 
-    function handleNavigateToCreateDonation() {
-        navigation.navigate('SelectMapPosition');
+    function handleNavigateToUser() {
+        navigation.navigate('User');
     }
+
+    function handleNavigateToCreateDonation() {
+      navigation.navigate('SelectMapPosition');
+  }
 
     function handleNavigateBack() {
       navigation.goBack();
@@ -54,6 +68,10 @@ export default function DonationsMap() {
       navigation.navigate('Home');
   }
 
+  function handleSelectedItem() {
+    setItem(true)
+}
+
     return(
       <>
         <View style={styles.container}>
@@ -61,10 +79,15 @@ export default function DonationsMap() {
             <TouchableOpacity onPress={handleNavigateBack}>
               <Icon name="arrow-left" size={20} color="#15c3d6" />
             </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleGoHome}>
+            
+            {study && loggedIn ? (<TouchableOpacity onPress={handleGoHome}>
               <Icon name="log-out" size={20} color="#15c3d6" />
-            </TouchableOpacity>
+            </TouchableOpacity>) : 
+            
+            (<RectButton style={styles.createUser} onPress={handleNavigateToUser}>
+                <Icon name="user" size={20} color="#ffffff"></Icon>
+            </RectButton>)}
+            
           </View>
 
           <Text style={styles.title}>Bem vindo.</Text>
@@ -97,7 +120,8 @@ export default function DonationsMap() {
                 >
                   <Callout tooltip onPress={() => handleNavigateToDonationDetails(donationLocation.id)}>
                     <View style={styles.calloutContainer}>
-                      <Text style={styles.calloutText}>{donationLocation.name}</Text>
+                <Text style={styles.calloutText}>{donationLocation.name} - R${donationLocation.price}
+                </Text>
                     </View>
                   </Callout>
                 </Marker>
@@ -114,25 +138,25 @@ export default function DonationsMap() {
 
                 >
                 <TouchableOpacity style={styles.item}
-                          onPress={() => {}}>
+                          onPress={handleSelectedItem}>
                   <Image style={styles.img} source={require('../images/book2.png')} />
                   <Text style={styles.itemTitle}>Programação</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
-                          onPress={() => {}}>
+                          onPress={handleSelectedItem}>
                   <Image style={styles.img} source={require('../images/book3.png')} />
                   <Text style={styles.itemTitle}>Cáculo I</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
-                          onPress={() => {}}>
+                          onPress={handleSelectedItem}>
                   <Image style={styles.img} source={require('../images/book2.png')} />
                   <Text style={styles.itemTitle}>Física</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.item}
-                          onPress={() => {}}>
+                          onPress={handleSelectedItem}>
                   <Image style={styles.img} source={require('../images/book3.png')} />
                   <Text style={styles.itemTitle}>Estatística</Text>
                 </TouchableOpacity>
@@ -205,6 +229,15 @@ const styles = StyleSheet.create({
     createDoacao: {
       width: 56,
       height: 56,
+      backgroundColor: '#15c3d6',
+      borderRadius:28,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+
+    createUser: {
+      width: 26,
+      height: 26,
       backgroundColor: '#15c3d6',
       borderRadius:28,
       justifyContent: 'center',

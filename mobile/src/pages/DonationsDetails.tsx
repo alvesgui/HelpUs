@@ -76,8 +76,8 @@ export default function DonationsDetails() {
       </View>
 
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{donationLocation.name}</Text>
-        <Text style={styles.description}>{donationLocation.about}</Text>
+        <Text style={styles.title}>R$ {donationLocation.price}</Text>
+        <Text style={styles.description}>{donationLocation.name}</Text>
       
         <View style={styles.mapContainer}>
           <MapView 
@@ -109,8 +109,8 @@ export default function DonationsDetails() {
       
         <View style={styles.separator} />
 
-        <Text style={styles.title}>Preço</Text>
-            <Text style={styles.description}>{donationLocation.price}</Text>
+        <Text style={styles.title}>Assunto</Text>
+            <Text style={styles.description}>{donationLocation.objects}</Text>
 
         <View style={styles.scheduleContainer}>
           <View style={[styles.scheduleItem, styles.scheduleItemBlue]}>
