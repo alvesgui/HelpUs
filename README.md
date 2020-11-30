@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Help Us" title="Help Us" src="/mobile/src/images//map-marker.png.png" />
+    <img alt="Help Us" title="Help Us" src="/mobile/src/images/8.png" />
 </h1>
 
 <p align="center">
@@ -18,7 +18,7 @@
 <br>
 
 <p align="center">
-  <img alt="Help Us" src="mobile/src/images/logo.png" width="100%">
+  <img alt="Help Us" src="mobile/src/images/8.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
