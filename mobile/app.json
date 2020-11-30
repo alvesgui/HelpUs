@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mobile",
+    "name": "Help Us",
     "slug": "mobile",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#053A5B"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,10 +19,12 @@
     "ios": {
       "supportsTablet": true
     },
+    
     "android": {
+      "package": "com.itegra.helpus",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#053A5B"
       }
     },
     "web": {
