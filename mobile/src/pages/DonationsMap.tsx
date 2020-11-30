@@ -166,7 +166,7 @@ export default function DonationsMap() {
             <View style={styles.footer}>
             <Text style={styles.footerText}>{donationLocations.length} locais encontrados</Text>
             
-            {study ? (<View />) : (<RectButton style={styles.createDoacao} onPress={handleNavigateToCreateDonation}>
+            {study && loggedIn ? (<View />) : (<RectButton style={styles.createDoacao} onPress={handleNavigateToCreateDonation}>
                 <Icon name="plus" size={20} color="#ffffff"></Icon>
             </RectButton>)}
             
